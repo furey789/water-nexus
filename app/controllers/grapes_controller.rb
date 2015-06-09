@@ -1,0 +1,4 @@
+
+class GrapesController < ApplicationController
+
+end

@@ -7,6 +7,7 @@ require 'rails/all'
 Bundler.require(*Rails.groups)
 
 module WaterSo
+  
   class Application < Rails::Application
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
@@ -23,4 +24,12 @@ module WaterSo
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true
   end
+
+  Tumblr.configure do |config|
+    config.consumer_key = "7yXgy2V25LqJw7BVJkEno6qlsgAKcUkBZ4KyFtxTfK8oq4WjwU"
+    config.consumer_secret = "consumer_secret"
+    config.oauth_token = "access_token"
+    config.oauth_token_secret = "access_token_secret"
+  end
+
 end

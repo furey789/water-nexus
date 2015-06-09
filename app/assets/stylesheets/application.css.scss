@@ -13,3 +13,41 @@
  *= require_tree .
  *= require_self
  */
+
+ /*"bootstrap-sprockets" must be imported before "bootstrap" and "bootstrap/variables"*/
+
+ @import "bootstrap-sprockets";
+ @import "bootstrap";
+
+ .navbar-inverse {
+     background-color: orange;
+ }
+
+
+// For D3 - Produce Plot ...
+
+ body {
+   margin:10px 5px 30px 60px;
+   width: 1060px;
+ }
+
+ text {
+   font: 15px sans-serif;
+ }
+
+ .axis path,
+ .axis line {
+   fill: none;
+   stroke: #000;
+   shape-rendering: crispEdges;
+ }
+
+ .x.axis path {
+   display: none;
+ }
+
+ .line {
+   fill: none;
+   stroke: url(#temperature-gradient);
+   stroke-width: 2.5px;
+ }

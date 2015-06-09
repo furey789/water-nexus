@@ -1,2 +1,59 @@
 
-Welcome
+
+<head>
+	<title>Produce Change</title>
+</head>
+
+
+<h3>Change in Produce Export Price</h3>
+<div id="graph" class="graph" style="position:relative;width:100%;height:630px"></div>
+
+<!-- <body> -->
+
+------
+
+
+<div class="TEST">
+  MOO
+</div>
+
+<!-- END MV PLOT -->
+<div class="container">
+
+  Water-Nexus - CA
+
+
+  --
+
+
+--> What is Water-SO?     About Data Sources         Login
+
+  --
+
+  Drop downs.
+
+
+  Button - > Choose Area of Interest - > new page
+  <br>
+  <br>
+
+  <% client = Tumblr::Client.new %>
+  <% hash = client.posts("stateofdrought.tumblr.com") %>
+
+  <%= hash["blog"]%>
+  <br>
+
+  <%= hash["posts"].length %>
+
+  <% hash["posts"].each do |post| %>
+    <%= post["id"]%>
+    <br>
+    <%= post["date"] %>
+    <br>
+    <%= post["trail"][0]%>
+    <!-- ["content"]  -->
+    ------------------------------------
+    <br>
+  <% end %>
+
+</div>

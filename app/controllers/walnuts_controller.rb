@@ -1,0 +1,4 @@
+
+class WalnutsController < ApplicationController
+
+end

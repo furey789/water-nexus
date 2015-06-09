@@ -1,0 +1,4 @@
+
+class TumblrBlogsController < ApplicationController
+
+end
