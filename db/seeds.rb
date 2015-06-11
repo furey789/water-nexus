@@ -113,13 +113,26 @@
 client = Tumblr::Client.new
 hash = client.posts("stateofdrought.tumblr.com")
 
-p hash["blog"]
+# p hash["blog"]
+# p hash["posts"].length
+
+post_ids = TumblrBlog.pluck("post_id")
+
 p hash["posts"].length
+p post_ids
 
 hash["posts"].each do |post|
-  TumblrBlog.create!(
-    "post_id": "#{post["id"]}",
-    "post_date": "#{post["date"]}",
-    "content": "#{post["trail"][0]["content"]}"
-    )
+
+  if (post_ids.index(post["id"]) != nil)
+
+    p post
+
+    TumblrBlog.create!(
+      "post_id": "#{post["id"]}",
+      "post_date": "#{post["date"]}",
+      "content": "#{post["trail"][0]["content"]}"
+      )
+
+  end
+
 end

@@ -18,19 +18,23 @@ class Almond < ActiveRecord::Base
 
       months.each do |month|
 
-        almond_yr_formatted = {}
-        almond_yr_formatted["price"] = almond_yr[month[0]]
-        almond_yr_formatted["month"] = month[1]
+        if (almond_yr[month[0]] != 0)
 
-        if (month[1] >= 8)
-          almond_yr_formatted["year"] = year
-        else
-          almond_yr_formatted["year"] = year+1
+          almond_yr_formatted = {}
+          almond_yr_formatted["price"] = almond_yr[month[0]]
+          almond_yr_formatted["month"] = month[1]
+
+          if (month[1] >= 8)
+            almond_yr_formatted["year"] = year
+          else
+            almond_yr_formatted["year"] = year+1
+          end
+
+          almond_yr_formatted["day"] = 1
+
+          array.push(almond_yr_formatted)
+
         end
-
-        almond_yr_formatted["day"] = 1
-
-        array.push(almond_yr_formatted)
 
       end
 

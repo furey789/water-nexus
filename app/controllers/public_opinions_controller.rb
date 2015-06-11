@@ -1,0 +1,6 @@
+
+class PublicOpinionsController < ApplicationController
+
+
+
+end

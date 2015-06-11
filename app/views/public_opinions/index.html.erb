@@ -1,7 +1,4 @@
 
-
-<!-- <body> -->
-
 ------
 
 
@@ -14,9 +11,7 @@
 	and what we think. Here, we look into this trifecta of issues.
 </div>
 
-<%= link_to "Water Conditions", water_conditions_path %>
 <%= link_to "Farm Economics", farm_economics_path %>
-<%= link_to "Public Opinions", public_opinions_path %>
 
 <!-- END MV PLOT -->
 <div class="container">
@@ -36,5 +31,25 @@
 
   Button - > Choose Area of Interest - > new page
   <br>
+  <br>
+
+  <% client = Tumblr::Client.new %>
+  <% hash = client.posts("stateofdrought.tumblr.com") %>
+
+  <%= hash["blog"]%>
+  <br>
+
+  <%= hash["posts"].length %>
+
+  <% hash["posts"].each do |post| %>
+    <%= post["id"]%>
+    <br>
+    <%= post["date"] %>
+    <br>
+    <%= post["trail"][0]%>
+    <!-- ["content"]  -->
+    ------------------------------------
+    <br>
+  <% end %>
 
 </div>

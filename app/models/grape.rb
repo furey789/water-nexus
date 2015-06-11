@@ -18,19 +18,23 @@ class Grape < ActiveRecord::Base
 
       months.each do |month|
 
-        grape_yr_formatted = {}
-        grape_yr_formatted["price"] = grape_yr[month[0]]
-        grape_yr_formatted["month"] = month[1]
+        if (grape_yr[month[0]] != 0)
 
-        if (month[1] >= 8)
-          grape_yr_formatted["year"] = year
-        else
-          grape_yr_formatted["year"] = year+1
+          grape_yr_formatted = {}
+          grape_yr_formatted["price"] = grape_yr[month[0]]
+          grape_yr_formatted["month"] = month[1]
+
+          if (month[1] >= 8)
+            grape_yr_formatted["year"] = year
+          else
+            grape_yr_formatted["year"] = year+1
+          end
+
+          grape_yr_formatted["day"] = 1
+
+          array.push(grape_yr_formatted)
+
         end
-
-        grape_yr_formatted["day"] = 1
-
-        array.push(grape_yr_formatted)
 
       end
 

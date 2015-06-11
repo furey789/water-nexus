@@ -3,8 +3,8 @@ $( document ).ready(function() {
 
   $.ajax({
     type: 'GET',
-    url: '/',
-    data: {"produce_data":{}},  //{ "shoe": { "material": $('.shoe-name').val() } },
+    url: '/farm_economics',
+    //data: {"produce_data":{}},  //{ "shoe": { "material": $('.shoe-name').val() } },
     dataType: "json",
     success: function(data){
       // console.log("Tester");
@@ -231,9 +231,9 @@ $( document ).ready(function() {
   	var currIndex=data2[0].priceList.length-1;
 
   	var x = d3.time.scale()
-  		.range([0, width-210]),
+  		.range([0, width-260]),
   		x2 = d3.time.scale()
-  		.range([0, width-210]);
+  		.range([0, width-260]);
   	var y = d3.scale.linear()
   		.range([height, 0]),
   		y2 = d3.scale.linear()

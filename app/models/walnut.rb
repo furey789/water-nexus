@@ -18,19 +18,23 @@ class Walnut < ActiveRecord::Base
 
       months.each do |month|
 
-        walnut_yr_formatted = {}
-        walnut_yr_formatted["price"] = walnut_yr[month[0]]
-        walnut_yr_formatted["month"] = month[1]
+        if (walnut_yr[month[0]] != 0)
 
-        if (month[1] >= 8)
-          walnut_yr_formatted["year"] = year
-        else
-          walnut_yr_formatted["year"] = year+1
+          walnut_yr_formatted = {}
+          walnut_yr_formatted["price"] = walnut_yr[month[0]]
+          walnut_yr_formatted["month"] = month[1]
+
+          if (month[1] >= 8)
+            walnut_yr_formatted["year"] = year
+          else
+            walnut_yr_formatted["year"] = year+1
+          end
+
+          walnut_yr_formatted["day"] = 1
+
+          array.push(walnut_yr_formatted)
+
         end
-
-        walnut_yr_formatted["day"] = 1
-
-        array.push(walnut_yr_formatted)
 
       end
 
