@@ -12,24 +12,35 @@
  *
  *= require_tree .
  *= require_self
+ *= require jquery-ui.min
+ *= require jquery-ui.structure.min
+ *= require jquery-ui.theme.min
  */
 
- /*"bootstrap-sprockets" must be imported before "bootstrap" and "bootstrap/variables"*/
+/*"bootstrap-sprockets" must be imported before "bootstrap" and "bootstrap/variables"*/
+@import "bootstrap-sprockets";
+@import "bootstrap";
 
- @import "bootstrap-sprockets";
- @import "bootstrap";
+body {
+  padding-top: 85px;
+  padding-bottom: 85px;
+  }
 
- .navbar-inverse {
+.navbar-inverse {
      background-color: orange;
  }
 
-
 // For D3 - Produce Plot ...
+// Also, html tag below needed for google maps to work
+body {
+   width: 100%;
+   margin-left: 0%;
+   margin-right: 0%;
+   padding-left: 0;
+   padding-right: 0;
+   border: 0;
+  }
 
- body {
-   margin:10px 5px 30px 60px;
-   width: 1060px;
- }
 
  text {
    font: 15px sans-serif;
@@ -39,15 +50,41 @@
  .axis line {
    fill: none;
    stroke: #000;
-   shape-rendering: crispEdges;
+  //  shape-rendering: crispEdges;
  }
 
- .x.axis path {
-   display: none;
- }
+ // .x.axis path {
+ //   display: none;
+ // }
 
  .line {
    fill: none;
    stroke: url(#temperature-gradient);
    stroke-width: 2.5px;
  }
+
+
+.container{
+  min-height: 500px;
+}
+
+//For Google map
+html body #map-canvas {
+  height: 100%;
+  min-height: 600px;
+  border-radius: 6px 6px 6px 6px;
+  border: solid 2px;
+  border-color: black;
+}
+
+#accordion .ui-accordion-header {
+    font-size: 20pt;
+    line-height: 16pt;
+    text-align: center;
+}
+
+#accordion .ui-accordion-content {
+    font-size: 15pt;
+    line-height: 20pt;
+    // text-align: center;
+}

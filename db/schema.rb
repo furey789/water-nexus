@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150603222948) do
+ActiveRecord::Schema.define(version: 20150616190339) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -35,7 +35,45 @@ ActiveRecord::Schema.define(version: 20150603222948) do
     t.datetime "updated_at"
   end
 
+  create_table "datepalms", force: :cascade do |t|
+    t.string   "Units"
+    t.string   "Market_year"
+    t.decimal  "Aug"
+    t.decimal  "Sep"
+    t.decimal  "Oct"
+    t.decimal  "Nov"
+    t.decimal  "Dec"
+    t.decimal  "Jan"
+    t.decimal  "Feb"
+    t.decimal  "Mar"
+    t.decimal  "Apr"
+    t.decimal  "May"
+    t.decimal  "Jun"
+    t.decimal  "Jul"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "grapes", force: :cascade do |t|
+    t.string   "Units"
+    t.string   "Market_year"
+    t.decimal  "Aug"
+    t.decimal  "Sep"
+    t.decimal  "Oct"
+    t.decimal  "Nov"
+    t.decimal  "Dec"
+    t.decimal  "Jan"
+    t.decimal  "Feb"
+    t.decimal  "Mar"
+    t.decimal  "Apr"
+    t.decimal  "May"
+    t.decimal  "Jun"
+    t.decimal  "Jul"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "pistachios", force: :cascade do |t|
     t.string   "Units"
     t.string   "Market_year"
     t.decimal  "Aug"
@@ -79,6 +117,14 @@ ActiveRecord::Schema.define(version: 20150603222948) do
     t.decimal  "Jul"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "water_sites", force: :cascade do |t|
+    t.string "name"
+    t.string "code"
+    t.string "latitude"
+    t.string "longitude"
+    t.text   "description"
   end
 
 end

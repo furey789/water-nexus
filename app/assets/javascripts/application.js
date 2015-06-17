@@ -14,5 +14,5 @@
 //= require d3.min
 //= require bootstrap-sprockets
 //= require jquery_ujs
-//= require turbolinks
+//= require jquery-ui.min
 //= require_tree .

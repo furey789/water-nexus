@@ -7,7 +7,7 @@ require 'rails/all'
 Bundler.require(*Rails.groups)
 
 module WaterSo
-  
+
   class Application < Rails::Application
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
@@ -31,5 +31,7 @@ module WaterSo
     config.oauth_token = "access_token"
     config.oauth_token_secret = "access_token_secret"
   end
+
+  
 
 end
