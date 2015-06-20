@@ -10,11 +10,43 @@
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDBvl4BMeT37sTUfo7_7xxFiunyVKMolr0&libraries=visualization&sensor=true_or_false">
   </script>
 </head>
-<body>
-  <nav class="navbar navbar-inverse navbar-fixed-top">
-  </nav>
 
-<%= yield %>
+<body class= <%=params[:controller] %>>
+
+  <% if (params[:controller] == "static_pages" || params[:controller] == "nexus_items") %>
+  <nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="centered">
+      <h2><b>Water Nexus - Northern & Central California</b></h1>
+    </div>
+  </nav>
+  <% end %>
+
+  <% if (params[:controller] == "water_conditions") %>
+  <nav class="navbar navbar-inverse-water navbar-fixed-top">
+    <div class="centered">
+      <h2><b>How Much Water Do We Have?</b></h1>
+    </div>
+  </nav>
+  <% end %>
+
+  <% if (params[:controller] == "farm_economics") %>
+  <nav class="navbar navbar-inverse-farm navbar-fixed-top">
+    <div class="centered">
+      <h2><b>For What Purposes Do We Use Water?</b></h1>
+    </div>
+  </nav>
+  <% end %>
+
+  <% if (params[:controller] == "public_opinions") %>
+  <nav class="navbar navbar-inverse-opinion navbar-fixed-top">
+    <div class="centered">
+      <h2><b>What Do We Think About Water?</b></h1>
+    </div>
+  </nav>
+  <% end %>
+
+  <%= yield %>
 
 </body>
+
 </html>

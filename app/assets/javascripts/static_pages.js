@@ -1,14 +1,11 @@
 
 $(document).ready(function () {
 
-  if ($("#accordion").length > 0) {
-
-    $(function() {
-        $("#accordion").accordion({
-          collapsible: true
-        });
+  $(function() {
+    $("button").button()
+      .click(function( event ) {
+        // event.preventDefault();
       });
-
-  }
+  });
 
 });

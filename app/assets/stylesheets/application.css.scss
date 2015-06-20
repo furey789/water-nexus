@@ -26,9 +26,25 @@ body {
   padding-bottom: 85px;
   }
 
+.navbar {
+  border-bottom-style: solid;
+}
+
 .navbar-inverse {
      background-color: orange;
  }
+
+.navbar-inverse-water {
+    background-color: lightskyblue;
+}
+
+.navbar-inverse-farm {
+    background-color: lightcoral;
+}
+
+.navbar-inverse-opinion {
+    background-color: lightseagreen;
+}
 
 // For D3 - Produce Plot ...
 // Also, html tag below needed for google maps to work
@@ -41,6 +57,23 @@ body {
    border: 0;
   }
 
+.static_pages {
+  background: url("northern_ca.jpg");
+  background-size: cover;
+}
+
+.nexus_items {
+  background: url("northern_ca.jpg");
+  background-size: cover;
+}
+
+.water_conditions {
+  background-color: lightorange;
+}
+
+.centered {
+  text-align: center;
+}
 
  text {
    font: 15px sans-serif;
@@ -79,12 +112,12 @@ html body #map-canvas {
 
 #accordion .ui-accordion-header {
     font-size: 20pt;
-    line-height: 16pt;
     text-align: center;
+    padding-left: 0;
 }
 
 #accordion .ui-accordion-content {
     font-size: 15pt;
     line-height: 20pt;
-    // text-align: center;
+    text-align: center;
 }

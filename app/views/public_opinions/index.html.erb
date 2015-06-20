@@ -1,55 +1,55 @@
 
-------
 
-
-<div class="TEST">
-	What We Have, How We Use it, What We Think, How We Manage It
-
-  Available Water - Uses of Water
-
-	How we manage water as a resource is influenced by What we have, How we use it,
-	and what we think. Here, we look into this trifecta of issues.
-</div>
-
-<%= link_to "Farm Economics", farm_economics_path %>
-
-<!-- END MV PLOT -->
 <div class="container">
 
-  Water-Nexus - CA
+  <% words0 = TumblrBlog.content %>
+  <% words1 = [] %>
+  <% words2 = [] %>
+  <% wordsFinal = [] %>
 
-
-  --
-
-
---> What is Water-SO?     About Data Sources         Login
-
-  --
-
-  Drop downs.
-
-
-  Button - > Choose Area of Interest - > new page
-  <br>
-  <br>
-
-  <% client = Tumblr::Client.new %>
-  <% hash = client.posts("stateofdrought.tumblr.com") %>
-
-  <%= hash["blog"]%>
-  <br>
-
-  <%= hash["posts"].length %>
-
-  <% hash["posts"].each do |post| %>
-    <%= post["id"]%>
-    <br>
-    <%= post["date"] %>
-    <br>
-    <%= post["trail"][0]%>
-    <!-- ["content"]  -->
-    ------------------------------------
-    <br>
+  <% words0.each do |word| %>
+    <!-- gsub dashes below have different encodings -->
+    <% words1.push( word.gsub(/[\/\-<>\"\—\–\“\”\’\:\?\,\.\(\)]/," ") )%>
   <% end %>
+
+  <% words1.each do |word| %>
+    <% words2.push( word.split(" ") )%>
+  <% end %>
+  <% words2 = words2.flatten %>
+
+  <% words2.each do |word| %>
+    <!-- includes removing 'href='' and 'target='; deleting white space -->
+    <% if ( word.length > 3 && word.index("=") === nil && word.index("#") === nil && word.index("_") === nil) %>
+      <% wordsFinal.push( word.strip ) %>
+    <% end %>
+  <% end %>
+
+  <% wordsUniq = wordsFinal.uniq %>
+  <% wordsCount = [] %>
+
+  <% wordsUniq.each do |word| %>
+    <% wordsCount.push(wordsFinal.count(word)) %>
+  <% end %>
+
+  <%= "******" %>
+  <br>
+  <br>
+  <%= wordsUniq %>
+  <br><br>
+  <%= wordsCount %>
+  <br><br>
+  <%= wordsUniq.length %>
+  <%= wordsCount.length %>
+  <%= "**" %>
+  <br>
+  <br>
+  <br><br>
+  <!-- < %= words3[1].gsub(/[\—\–]/,"FUCK") %> -->
+  <!-- <%= words2 %> -->
+    <!-- chars [ <br>, </br>, <p>, </p>, <a>, </a>, <a, ., ?, ]
+    anything with = -->
+  <br>
+
+  <!-- "hello".gsub(/[aeiou]/, '*') -->
 
 </div>

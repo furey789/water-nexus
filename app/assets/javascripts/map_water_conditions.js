@@ -168,7 +168,7 @@ $( document ).ready(function() {
           mapTypeId: google.maps.MapTypeId.SATELLITE,  //SATELLITE, HYBRID
           zoomControl: true,
           zoomControlOptions: {
-            // style: google.maps.ZoomControlStyle.SMALL,
+            style: google.maps.ZoomControlStyle.SMALL,
             position: google.maps.ControlPosition.RIGHT_TOP
           },
           streetViewControl: false,
@@ -192,7 +192,7 @@ $( document ).ready(function() {
           mapTypeId: google.maps.MapTypeId.SATELLITE,  //SATELLITE, HYBRID
           zoomControl: true,
           zoomControlOptions: {
-            // style: google.maps.ZoomControlStyle.SMALL,
+            style: google.maps.ZoomControlStyle.SMALL,
             position: google.maps.ControlPosition.RIGHT_TOP
           },
           streetViewControl: false,

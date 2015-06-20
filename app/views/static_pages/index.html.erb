@@ -1,58 +1,6 @@
 
-<head>
-  <meta charset="utf-8">
-  <title>jQuery UI Accordion - Collapse content</title>
-  <!-- <link rel="stylesheet" href="/resources/demos/style.css"> -->
-</head>
-
 <div class="container">
-
-	<h3 style: "text-align: center">Water Nexus - Northern & Central California</h3>
-
-	<div class="row">
-
-		<div class="col-md-6 col-md-offset-3">
-
-			<div id="accordion">
-
-			  <h3>Water Nexus</h3>
-			  <div>
-			    <p>
-						Nexus - A connected group
-						<br><br>
-						Water - A resource on which we depend
-						<br><br>
-						This website provides a context for thinking about water and how it
-						connects our lives in the U.S.
-						<br><br>
-						<p>
-							<h3 style: "text-align: center">Please explore ...</h3>
-						</p>
-					</p>
-			  </div>
-
-			  <h3>Have</h3>
-			  <div>
-			    <p>How much water do we have?</p>
-					<%= link_to "Water Conditions", water_conditions_path %>
-				</div>
-
-			  <h3>Use</h3>
-			  <div>
-			    <p>What do we use water for?</p>
-					<%= link_to "Farm Economics", farm_economics_path %>
-			  </div>
-
-			  <h3>Think</h3>
-			  <div>
-			    <p>What are our opinions and thoughts about water?</p>
-					<%= link_to "Public Opinions", public_opinions_path %>
-				</div>
-
-			</div>
-
-		</div>
-
+	<div class="centered">
+		<button style="font-size: 15pt"> <%= link_to 'GO', nexus_items_path%></button>
 	</div>
-
 </div>
