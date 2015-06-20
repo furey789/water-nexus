@@ -15,4 +15,5 @@
 //= require bootstrap-sprockets
 //= require jquery_ujs
 //= require jquery-ui.min
+//= require jqcloud
 //= require_tree .
