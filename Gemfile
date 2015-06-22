@@ -6,6 +6,9 @@ gem 'rails', '4.2.1'
 # Use postgresql as the database for Active Record
 gem 'pg'
 
+# For Heroku interpreting bootstrap
+gem 'rails_12factor', '~> 0.0.3', group: :production
+
 #  Bootstrap
 gem 'bootstrap-sass', '~> 3.3.3'
 # gem 'sass-rails', '>= 3.2'
