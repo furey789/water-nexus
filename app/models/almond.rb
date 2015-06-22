@@ -40,6 +40,7 @@ class Almond < ActiveRecord::Base
 
     end
 
+    # Hash rocket needed for Heroku
     @data = [{"name" => "Almonds"},{"data" => array}]
 
   end
