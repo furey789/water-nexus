@@ -40,7 +40,7 @@ class Pistachio < ActiveRecord::Base
 
     end
 
-    @data = [{"name": "Pistachios"},{"data": array}]
+    @data = [{"name" => "Pistachios"},{"data" => array}]
 
   end
 

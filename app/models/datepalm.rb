@@ -40,7 +40,7 @@ class Datepalm < ActiveRecord::Base
 
     end
 
-    @data = [{"name": "Dates"},{"data": array}]
+    @data = [{"name" => "Dates"},{"data" => array}]
 
   end
 

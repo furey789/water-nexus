@@ -40,7 +40,7 @@ class Almond < ActiveRecord::Base
 
     end
 
-    @data = [{"name": "Almonds"},{"data": array}]
+    @data = [{"name" => "Almonds"},{"data" => array}]
 
   end
 
