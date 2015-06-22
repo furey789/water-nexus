@@ -29,7 +29,8 @@ class PublicOpinionsController < ApplicationController
     words_unique = words_all.uniq
 
     words_unique.each do |word|
-      word_count_array.push( {"text": word, "weight": words_all.count(word)} )
+      word_weight_obj = {"text": word, "weight": words_all.count(word) }
+      word_count_array.push( word_weight_obj )
     end
 
 

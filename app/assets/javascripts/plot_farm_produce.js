@@ -25,7 +25,12 @@ $( document ).ready(function() {
 
       for(var i=0; i < data.length; i++) {
         var fund=new Object();
-        fund.vis="0";
+        // fund.vis="0";
+        if (i === 0) {
+          fund.vis="1";
+        } else {
+          fund.vis="0";
+        }
         fund.name=data[i][0].name;
         fundName[i]=fund.name;
         fund.priceList=new Array();
