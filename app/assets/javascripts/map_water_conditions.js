@@ -7,6 +7,33 @@ $( document ).ready(function() {
 
   if ($("#map-canvas").length > 0) {
 
+    $(function() {
+        $( "#progressbar" ).progressbar({
+          value: false
+        });
+        progressbar = $( "#progressbar" );
+        progressbarValue = progressbar.find( ".ui-progressbar-value" );
+        progressbarValue.css({"background": 'blue'});
+
+        // $( "button" ).on( "click", function( event ) {
+        //   var target = $( event.target ),
+        //     progressbar = $( "#progressbar" ),
+        //     progressbarValue = progressbar.find( ".ui-progressbar-value" );
+        //
+        //   if ( target.is( "#numButton" ) ) {
+        //     progressbar.progressbar( "option", {
+        //       value: Math.floor( Math.random() * 100 )
+        //     });
+        //   } else if ( target.is( "#colorButton" ) ) {
+        //     progressbarValue.css({
+        //       "background": '#' + Math.floor( Math.random() * 16777215 ).toString( 16 )
+        //     });
+        //   } else if ( target.is( "#falseButton" ) ) {
+        //     progressbar.progressbar( "option", "value", false );
+        //   }
+        // });
+      });
+
     // console.log('loaded');
 
     makeBaseMap();
@@ -28,11 +55,11 @@ $( document ).ready(function() {
 
 
     var endpointNow =
-    '//waterservices.usgs.gov/nwis/dv/?format=json,1.1&bBox=-124.25,36.75,-118.50,42.10&siteType=LK&startDT=' +
+    'http://waterservices.usgs.gov/nwis/dv/?format=json,1.1&bBox=-124.25,36.75,-118.50,42.10&siteType=LK&startDT=' +
     todayString + '&endDT=' + todayString;
 
     var endpointThen =
-    '//waterservices.usgs.gov/nwis/dv/?format=json,1.1&bBox=-124.25,36.75,-118.50,42.10&siteType=LK&startDT=' +
+    'http://waterservices.usgs.gov/nwis/dv/?format=json,1.1&bBox=-124.25,36.75,-118.50,42.10&siteType=LK&startDT=' +
     fiveYrsAgoString + '&endDT=' + fiveYrsAgoString;
 
     // var endpointNow =

@@ -4,15 +4,13 @@
 
   <h3>Northern & Central California</h3>
 
-  <!-- <body> -->
-
     <div class="row">
 
       <div class="col-md-7">
         <div id="map-canvas"></div>
       </div>
 
-      <div class="col-md-5">
+      <div class="col-md-5" style="font-size: 15pt; position: left">
         This map shows locations of gauged lake and reservoirs depths and volumes.
 
         A heat map shows how depths and volumes have changed:
@@ -20,12 +18,20 @@
           Difference between 2009 and 2012
           Difference between 2009 and 2015
 
-        <button style="font-size: 15pt"> <%= link_to 'Back', nexus_items_path%></button>
-
       </div>
 
     </div>
 
-  <!-- </body> -->
+    <div class="row">
+      <div class="col-md-7">
+        <div id="progressbar"></div>
+      </div>
+    </div>
+
+    <div style="text-align: right">
+      <button style="font-size: 15pt"> <%= link_to 'Back', nexus_items_path%></button>
+      <button style="font-size: 15pt"> <%= link_to 'Use', farm_economics_path%></button>
+      <button style="font-size: 15pt"> <%= link_to 'Think', public_opinions_path%></button>
+    </div>
 
 </div>
