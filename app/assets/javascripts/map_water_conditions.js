@@ -166,11 +166,12 @@ $( document ).ready(function() {
       // 'http://waterservices.usgs.gov/nwis/dv/?format=json,1.1&bBox=-124.25,36.75,-118.50,42.10&startDT=' +
       // fiveYrsAgoString + '&endDT=' + fiveYrsAgoString;
 
-
+//this.response.setHeader("Access-Control-Allow-Origin", "*");
       $.ajax({
 
         type: 'GET',
         url: endpointThen,
+        crossDomain: true,
         dataType: "json",
         success: function(dataThen){
 
@@ -198,6 +199,7 @@ $( document ).ready(function() {
 
             type: 'GET',
             url: endpointNow,
+            crossDomain: true,
             dataType: "json",
             success: function(dataToday){
 
