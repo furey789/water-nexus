@@ -1,5 +1,5 @@
 
-class WaterData
+class WaterCondition
 
   def initialize
     @conn = Faraday.new(:url => 'http://waterservices.usgs.gov')

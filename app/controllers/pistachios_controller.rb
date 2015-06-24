@@ -1,5 +1,4 @@
 
 class PistachiosController < ApplicationController
 
-
 end

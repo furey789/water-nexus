@@ -6,7 +6,7 @@ class WaterConditionsController < ApplicationController
   end
 
   def get_data
-    water_data = WaterData.new
+    water_data = WaterCondition.new
     render json: [ water_data.getDataThen, water_data.getDataNow ]
   end
 

@@ -8,5 +8,6 @@ Rails.application.routes.draw do
 
   get '/farm_economics/data', to: 'farm_economics#get_data'
   get '/water_conditions/data', to: 'water_conditions#get_data'
+  get '/public_opinions/data', to: 'public_opinions#get_data'
 
 end

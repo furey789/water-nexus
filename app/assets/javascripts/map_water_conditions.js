@@ -1,7 +1,4 @@
 
-// <script type="text/javascript"
-//   src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDBvl4BMeT37sTUfo7_7xxFiunyVKMolr0">
-// </script>
 
 function makeBaseMap(){
 
@@ -130,7 +127,6 @@ $( document ).ready(function() {
 
   if ($("#map-canvas").length > 0) {
 
-    console.log("loaded2");
     makeBaseMap();
 
     $("#heatmap").on("click", function(){
