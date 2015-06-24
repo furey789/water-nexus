@@ -33,9 +33,9 @@ def getAlmondData
   data_values = data_raw[1..6]
 
   data_values.each do |row|
-    Almond.create!("Units": "$/lb")
+    Almond.create!("Units" => "$/lb")
     data_col_ids.each_with_index do |colid,attrid|
-      Almond.last.update!("#{attributes[attrid]}": "#{row[colid]}")
+      Almond.last.update!("#{attributes[attrid]}" => "#{row[colid]}")
     end
   end
 
@@ -67,9 +67,9 @@ def getWalnutData
   data_values = data_raw[1..6]
 
   data_values.each do |row|
-    Walnut.create!("Units": "$/lb")
+    Walnut.create!("Units" => "$/lb")
     data_col_ids.each_with_index do |colid,attrid|
-      Walnut.last.update!("#{attributes[attrid]}": "#{row[colid]}")
+      Walnut.last.update!("#{attributes[attrid]}" => "#{row[colid]}")
     end
   end
 
@@ -101,9 +101,9 @@ def getGrapeData
   data_values = data_raw[1..6]
 
   data_values.each do |row|
-    Grape.create!("Units": "$/lb")
+    Grape.create!("Units" => "$/lb")
     data_col_ids.each_with_index do |colid,attrid|
-      Grape.last.update!("#{attributes[attrid]}": "#{row[colid]}")
+      Grape.last.update!("#{attributes[attrid]}" => "#{row[colid]}")
     end
   end
 
@@ -135,9 +135,9 @@ def getPistachioData
   data_values = data_raw[1..6]
 
   data_values.each do |row|
-    Pistachio.create!("Units": "$/lb")
+    Pistachio.create!("Units" => "$/lb")
     data_col_ids.each_with_index do |colid,attrid|
-      Pistachio.last.update!("#{attributes[attrid]}": "#{row[colid]}")
+      Pistachio.last.update!("#{attributes[attrid]}" => "#{row[colid]}")
     end
   end
 
@@ -169,9 +169,9 @@ def getDatepalmData
   data_values = data_raw[1..6]
 
   data_values.each do |row|
-    Datepalm.create!("Units": "$/lb")
+    Datepalm.create!("Units" => "$/lb")
     data_col_ids.each_with_index do |colid,attrid|
-      Datepalm.last.update!("#{attributes[attrid]}": "#{row[colid]}")
+      Datepalm.last.update!("#{attributes[attrid]}" => "#{row[colid]}")
     end
   end
 
