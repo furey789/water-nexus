@@ -10,28 +10,49 @@
         <div id="map-canvas"></div>
       </div>
 
-      <div class="col-md-5" style="font-size: 15pt; position: left">
+      <div class="col-md-5" style="font-size: 15pt">
+        <p>
         This map shows locations of gauged lake and reservoirs depths and volumes.
+        <hr>
+        </p>
 
-        A heat map shows how depths and volumes have changed:
+        <p>
+        A heat map show how depths and volumes have changed from Jan 1 2009 to Jan1 2015:
+        </p>
+        <p style="text-align: center">
+        <button type="button" name="heatmap" style="font-size: 15pt">Make Heat Map</button>
+        </p>
 
-          Difference between 2009 and 2012
-          Difference between 2009 and 2015
+        <div id="progressbar"></div>
+
+        <div id="heatmapText"></div>
+        <!-- Areas in <FONT COLOR="red"><b>red</b></FONT> show that lake levels have declined. This is consistent with California's
+        drought that started roughly in 2011. -->
+
+
+        <hr>
+
+        <div style="text-align: center; bottom: 0">
+          <button style="font-size: 15pt"> <%= link_to 'Back', nexus_items_path%></button>
+          <button style="font-size: 15pt"> <%= link_to 'Use', farm_economics_path%></button>
+          <button style="font-size: 15pt"> <%= link_to 'Think', public_opinions_path%></button>
+        </div>
 
       </div>
 
     </div>
 
-    <div class="row">
+
+    <!-- <div class="row">
       <div class="col-md-7">
         <div id="progressbar"></div>
       </div>
-    </div>
+    </div> -->
 
-    <div style="text-align: right">
+    <!-- <div style="text-align: right">
       <button style="font-size: 15pt"> <%= link_to 'Back', nexus_items_path%></button>
       <button style="font-size: 15pt"> <%= link_to 'Use', farm_economics_path%></button>
       <button style="font-size: 15pt"> <%= link_to 'Think', public_opinions_path%></button>
-    </div>
+    </div> -->
 
 </div>
