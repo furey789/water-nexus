@@ -3,7 +3,34 @@ class PublicOpinionsController < ApplicationController
 
   def index
 
-    words0 = TumblrBlog.content
+    client = Tumblr::Client.new
+    hash = client.posts("stateofdrought.tumblr.com")
+
+    tumblr_blogs = []
+    hash["posts"].each do |post|
+      if (post["id"] != nil && post["date"] != nil && defined? post["trail"][0]["content"] != nil)
+        tumblr_blogs.push(
+          { "post_id" => post["id"],
+            "post_date" => post["date"],
+            "content" => post["trail"][0]["content"]
+          })
+      end
+    end
+    # p tumblr_blogs[0]["post_date"]
+    # p tumblr_blogs[5]["post_date"]
+    # p tumblr_blogs[tumblr_blogs.length-1]["post_date"]
+    dates_range = [
+      tumblr_blogs[tumblr_blogs.length-1]["post_date"][0..9],
+      tumblr_blogs[0]["post_date"][0..9]
+      ]
+
+    contents =[]
+    tumblr_blogs.each do |blog|
+      contents.push(blog["content"])
+    end
+
+    # words0 = TumblrBlog.content
+    words0 = contents.join(" ").split(' ').sort
     words1 = []
     words2 = []
     words_all = []
@@ -38,7 +65,7 @@ class PublicOpinionsController < ApplicationController
     respond_to do |format|
 
       format.html  # need this line to render html first before json
-      format.json { render json: word_count_array}
+      format.json { render json: [dates_range, word_count_array] }
 
     end
 

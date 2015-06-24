@@ -130,7 +130,7 @@ $( document ).ready(function() {
 
     makeBaseMap();
 
-    $("button").on("click", function(){
+    $("#heatmap").on("click", function(){
 
       progressBar();
 
