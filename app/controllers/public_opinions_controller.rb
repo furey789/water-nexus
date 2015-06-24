@@ -49,8 +49,12 @@ class PublicOpinionsController < ApplicationController
     words2.each do |word|
       # includes removing 'href='' and 'target='; deleting white space
       if ( word.length > 3 && word.index("=") === nil && word.index("#") === nil && word.index("_") === nil)
-        words_all.push( word.strip )
+        word_stripped = word.strip
+        words_all.push( word_stripped )
       end
+      # if (word_stripped != "http") #&& word_stripped.index("1") === nil)
+      #     words_all.push( word_stripped )
+      # end
     end
 
     words_unique = words_all.uniq

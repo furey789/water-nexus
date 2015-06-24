@@ -1,43 +1,16 @@
 
 $( document ).ready(function() {
 
-  // if ($("#opener")).length > 0){
-  //
-    // function() quizDialog{
-    //   $( "#dialog" ).dialog({
-    //     autoOpen: false,
-    //     show: {
-    //       effect: "blind",
-    //       duration: 1000
-    //     },
-    //     hide: {
-    //       effect: "explode",
-    //       duration: 1000
-    //     }
-    //   });
-    //
-    //   $( "#opener" ).click(function() {
-    //     $( "#dialog" ).dialog( "open" );
-    //   });
-    // };
-    //
-    // quizDialog();
-  //
-  // };
-
   if ($("#graph").length > 0) {
-
-    // console.log('loaded');
 
     $.ajax({
       type: 'GET',
-      url: '/farm_economics',
+      url: '/farm_economics/data',
       dataType: "json",
       success: function(data){
         plotProduce(data);
       }
     });
-
 
     function plotProduce(data){
 

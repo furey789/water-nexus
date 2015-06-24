@@ -2,18 +2,16 @@
 class FarmEconomicsController < ApplicationController
 
   def index
+  end
 
-    respond_to do |format|
-      almonds = Almond.formatted
-      walnuts = Walnut.formatted
-      grapes = Grape.formatted
-      pistachios = Pistachio.formatted
-      dates = Datepalm.formatted
-      produce_data = [almonds,dates,grapes,pistachios,walnuts]
-      format.html  # need this line to render html first before json
-      format.json { render json: produce_data}
-    end
-
+  def get_data
+    almonds = Almond.formatted
+    walnuts = Walnut.formatted
+    grapes = Grape.formatted
+    pistachios = Pistachio.formatted
+    dates = Datepalm.formatted
+    produce_data = [almonds,dates,grapes,pistachios,walnuts]
+    render json: produce_data
   end
 
 end
