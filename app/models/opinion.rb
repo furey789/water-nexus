@@ -55,19 +55,11 @@ class Opinion
     words_unique = words_all.uniq
 
     words_unique.each do |word|
-      # word_weight_obj = {"text": word, "weight": words_all.count(word) }
       word_weight_obj = {"text" => word, "weight" => words_all.count(word) }
       word_count_array.push( word_weight_obj )
     end
 
     data = [dates_range, word_count_array]
-
-    # respond_to do |format|
-    #
-    #   format.html  # need this line to render html first before json
-    #   format.json { render json: [dates_range, word_count_array] }
-    #
-    # end
 
   end
 

@@ -79,18 +79,21 @@ function makeHeatMap(siteInfo){
 
   for (var i = 0; i < siteInfo.length; i++) {
 
-     /*** MAKE ALL DATA FEET? ***/
+    /*** MAKE ALL DATA FEET? ***/
     //  1 acre = 43 560 square foot
     var wt = siteInfo[i].valueThen-siteInfo[i].valueNow;
 
+    // console.log("Before", wt);
     if (wt < 0 ) wt = wt*(-1);
+    wt = Math.log(wt+10);
+    // console.log("After", wt);
 
     heatmapData.push(
       {
         location: new google.maps.LatLng(
           siteInfo[i].latitude,
           siteInfo[i].longitude),
-        weight: 20
+        weight: wt
       }
     );
 
@@ -108,7 +111,7 @@ function makeHeatMap(siteInfo){
 
   $( "#progressbar" ).replaceWith( "<div id='progressbar'></div>" );
 
-  $( "#heatmapText" ).replaceWith( "<div id='heatmapText'>Areas in <FONT COLOR='red'><b>red</b></FONT> show that lake levels have declined. This is consistent with California's drought that started roughly in 2011.</div>" );
+  $( "#heatmapText" ).replaceWith( "<div id='heatmapText'>Areas in <FONT COLOR='red'><b>red</b></FONT> show that water levels have declined. This is consistent with California's drought that started roughly in 2011.</div>" );
 
 }
 
@@ -196,60 +199,44 @@ $( document ).ready(function() {
           // console.log("Num points");
           // console.log(sitesDataForMap.length);
 
-          $.ajax({
+          var dataToday = data[1];
+          var sitesDataToday = dataToday["value"]["timeSeries"];
 
-            type: 'GET',
-            url: '/water_conditions/data',
-            dataType: "json",
-            success: function(data){  //dataNow
+          for (var i = 0; i < sitesDataForMap.length; i++) {
 
-              var dataToday = data[1];
-              var sitesDataToday = dataToday["value"]["timeSeries"];
+            for (var j = 0; j < sitesDataToday.length; j++) {
 
-              for (var i = 0; i < sitesDataForMap.length; i++) {
+              var siteDataToday = getSiteInfo(sitesDataToday[j]);
 
-                for (var j = 0; j < sitesDataToday.length; j++) {
+              if ( sitesDataForMap[i]["latitude"] === siteDataToday["latitude"] &&
+                   sitesDataForMap[i]["longitude"] === siteDataToday["longitude"] &&
+                   siteDataToday.measurement.length > 0) {
 
-                  var siteDataToday = getSiteInfo(sitesDataToday[j]);
-
-                  if ( sitesDataForMap[i]["latitude"] === siteDataToday["latitude"] &&
-                       sitesDataForMap[i]["longitude"] === siteDataToday["longitude"] &&
-                       siteDataToday.measurement.length > 0) {
-
-                      sitesDataForMap[i]["valueNow"] = siteDataToday.measurement[1];
-                      sitesDataForMap[i]["unit"] = siteDataToday.unit;
-                      //console.log(siteDataToday.measurement[1]);
-                      //j = sitesDataToday.length;
-
-                    };
-
-                };
+                  sitesDataForMap[i]["valueNow"] = siteDataToday.measurement[1];
+                  sitesDataForMap[i]["unit"] = siteDataToday.unit;
+                  //console.log(siteDataToday.measurement[1]);
+                  //j = sitesDataToday.length;
 
               };
 
-              sitesDataForMap = sitesDataForMap.filter(function(elem){
-                if ( Object.keys(elem).indexOf("valueNow") != -1 ){
-                  return elem;
-                };
-              });
+            };
 
-              //console.log(sitesDataForMap);
-              for (var i = 0; i < sitesDataForMap.length; i++) {
-                console.log( sitesDataForMap[i].valueThen );
-                console.log( "now", sitesDataForMap[i].valueNow );
-                console.log( "diff", sitesDataForMap[i].valueThen-sitesDataForMap[i].valueNow);
-                console.log( "unit", sitesDataForMap[i].unit);
+          };
 
-                // console.log( (sitesDataForMap[i].valueThen-sitesDataForMap[i].valueNow)/sitesDataForMap[i].valueThen );
-                // console.log( (sitesDataForMap[i].valueThen-sitesDataForMap[i].valueNow) );
-                // console.log( sitesDataForMap[i].valueNow );
-              }
-
-              makeHeatMap(sitesDataForMap);
-
-            }  // no semi-colon
-
+          sitesDataForMap = sitesDataForMap.filter(function(elem){
+            if ( Object.keys(elem).indexOf("valueNow") != -1 ){
+              return elem;
+            };
           });
+
+          for (var i = 0; i < sitesDataForMap.length; i++) {
+            // console.log( "THEN", sitesDataForMap[i].valueThen );
+            // console.log( "now", sitesDataForMap[i].valueNow );
+            // console.log( "diff", sitesDataForMap[i].valueThen-sitesDataForMap[i].valueNow);
+            // console.log( "unit", sitesDataForMap[i].unit);
+          }
+
+          makeHeatMap(sitesDataForMap);
 
         }  // no semi-colon
 
@@ -278,4 +265,3 @@ $( document ).ready(function() {
 //   //     map.panTo(lastValidCenter);
 //   //     // map.setCenter(lastValidCenter);
 //   // });
-//
