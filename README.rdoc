@@ -9,6 +9,6 @@ The resulting app here is a small step towards the overall idea. The biggest
 challenge is obtaining sentiment information, for which Twitter and even Tumbler
 data seem insufficient.
 
-Backend: Rails, Ruby
-Frontend: JavaScript, Bootstrap, jQuery, D3
+Backend: Rails, Ruby;
+Frontend: JavaScript, Bootstrap, jQuery, D3;
 APIs: Google Maps, Tumbler
