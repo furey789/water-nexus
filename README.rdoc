@@ -1,28 +1,14 @@
-== README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This app originated as an idea to connect water observation with water use and sentiment.
+The relevance for this idea would be to assess if sentiment (loosely, how people
+perceive the value of water) falls in line with observation and use. In pursuing this
+idea as a personal project for a Galvanize course, I wanted to learn more about api
+implementation, JQuery, and D3.
 
-Things you may want to cover:
+The resulting app here is a small step towards the overall idea. The biggest
+challenge is obtaining sentiment information, for which Twitter and even Tumbler
+data seem insufficient.
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+Backend: Rails, Ruby
+Frontend: JavaScript, Bootstrap, jQuery, D3
+APIs: Google Maps, Tumbler
